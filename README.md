@@ -24,6 +24,12 @@ pnpm i
 bun i
 ```
 
+### Add Environment variables (.env file)
+
+```bash
+
+```
+
 ### Run the Development Server
 
 To start the development server, use one of the following commands:
