@@ -26,8 +26,16 @@ const config: Config = {
         ring: 'hsl(var(--ring))',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
-        green300: '#3FAC9C',
-        alert: '#FA6C70'
+        green300: '#32C158',
+        green200: "#E0F6E6",
+        red200: "#FDE2E1",
+        yellow300: "#D0CA35",
+        yellow200: "#FFFEDE",
+        alert: '#FA6C70',
+        black: '#858585',
+        gray: '#85858599',
+        blue300: "#007BBD",
+        blue200: "#B0E3FE"
       },
       borderRadius: {
         lg: 'var(--radius)',
