@@ -1,35 +1,44 @@
-"use client"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
+import { FaRegEyeSlash } from "react-icons/fa";
 
 import { FC } from "react"
 import Link from "next/link";
 import { LoginBtns } from "@/data/auth";
 
-
-const Login: FC = () => {
-
+const Signin: FC = () => {
     return (
         <section className="flex h-screen justify-center items-center">
-            <div className="w-full flex flex-col gap-5 py-9 px-10 md:w-[560px] md:border border-black rounded-xl">
+            <div className="w-full flex flex-col gap-5 py-9 px-10 md:w-[550px] md:border border-black rounded-xl">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold pb-2">Bienvenue !</h1>
-                    <h2>Vous n’avez pas de compte ? {" "}<Link href="/sigin" className="font-semibold">S’inscrire</Link></h2>
+                    <h2>Vous avez déjà un compte ? {" "}<Link href="/login" className="font-semibold">Connexion</Link></h2>
                 </div>
                 <form className="flex flex-col gap-4">
                     <div>
                         <Label>Email</Label>
-                        <Input />
+                        <Input type="email" placeholder="Email" />
+                    </div>
+                    <div>
+                        <Label>Username</Label>
+                        <Input type="text" placeholder="Username" />
                     </div>
                     <div>
                         <Label>Mot de passe</Label>
-                        <Input />
+                        <div className="flex items-center">
+                            <Input type="password" placeholder="Mot de passe" />
+                            {/* <span>
+                                <FaRegEyeSlash />
+                            </span> */}
+                        </div>
                     </div>
-                    <Link href="#" className="text-right text-sm">Mot de passe oublié ?</Link>
-                    <Button className="bg-green300 text-white" >Connexion</Button>
+                    <div>
+                        <Label>Confirmez le Mot de passe</Label>
+                        <Input type="password" placeholder="Confirmez le Mot de passe" />
+                    </div>
+                    <Button className="bg-green300 text-white mt-4" >S’inscrire</Button>
                 </form>
                 <span className="text-center text-sm">Ou continuer avec</span>
                 <div className="flex sm:flex-col gap-4 justify-center">
@@ -45,4 +54,4 @@ const Login: FC = () => {
     )
 }
 
-export default Login
+export default Signin
