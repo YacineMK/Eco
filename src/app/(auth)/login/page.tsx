@@ -3,14 +3,29 @@
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
 
 import { FC } from "react"
 import Link from "next/link";
 import { LoginBtns } from "@/data/auth";
-
+import { LoginSchema } from "@/utils/schemavalidator";
+import { Toaster, toast } from 'react-hot-toast';
 
 const Login: FC = () => {
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+
+    } = useForm({
+        resolver: zodResolver(LoginSchema)
+    });
+    const notify = () => toast.success('Successfully');
+
+    const onSubmit = (data: any) => {
+        console.log(data);
+    };
 
     return (
         <section className="flex h-screen justify-center items-center">
@@ -19,19 +34,21 @@ const Login: FC = () => {
                     <h1 className="text-3xl font-bold pb-2">Bienvenue !</h1>
                     <h2>Vous n’avez pas de compte ? {" "}<Link href="/sigin" className="font-semibold">S’inscrire</Link></h2>
                 </div>
-                <form className="flex flex-col gap-4">
+                <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)} >
                     <div>
                         <Label>Email</Label>
-                        <Input />
+                        <Input type="text" placeholder="Email" {...register("email")} className={errors.email ? "border border-alert placeholder:text-alert" : ""} />
+                        {errors.email && <p className="text-alert text-sm">{errors.email.message as string}</p>}
                     </div>
                     <div>
                         <Label>Mot de passe</Label>
-                        <Input />
+                        <Input type="password" placeholder="Mot de passe" {...register("password")} className={errors.password ? "border border-alert placeholder:text-alert" : ""} />
+                        {errors.password && <p className="text-alert text-sm ">{errors.password.message as string}</p>}
                     </div>
-                    <Link href="#" className="text-right text-sm">Mot de passe oublié ?</Link>
-                    <Button className="bg-green300 text-white" >Connexion</Button>
+                    <Link href="/forget" className="text-right text-sm">Mot de passe oublié ?</Link>
+                    <Button className="bg-green300 text-white" onClick={notify} >Connexion</Button>
                 </form>
-                <span className="text-center text-sm">Ou continuer avec</span>
+                <span className="text-center text-sm ">Ou continuer avec</span>
                 <div className="flex sm:flex-col gap-4 justify-center">
                     {LoginBtns.map((item, index) => (
                         <Button className="flex items-center justify-center" key={index}>
@@ -41,6 +58,10 @@ const Login: FC = () => {
                     ))}
                 </div>
             </div>
+            <Toaster
+                position="bottom-right"
+                reverseOrder={false}
+            />
         </section>
     )
 }
