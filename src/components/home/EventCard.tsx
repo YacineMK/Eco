@@ -22,11 +22,11 @@ const EventCard: FC = () => {
             </CardHeader>
             <CardContent className="flex flex-col gap-3">
                 <CardTitle className="text-xl">Recycle Rally: Transforming Waste into Resources</CardTitle>
-                <CardDescription className="text-sm text-black">Join us for "Green Horizons: Community Tree Planting Day," where we unite to plant trees, </CardDescription>
+                <CardDescription className="text-sm text-gray100">Join us for "Green Horizons: Community Tree Planting Day," where we unite to plant trees, </CardDescription>
                 <div className="flex w-full py-2 justify-between">
-                    <Button className="h-[65px] w-[120px]  bg-green200 text-green300 border-green300 flex flex-col "><LuUser2 />16 Participants</Button>
-                    <Button className="h-[65px] w-[120px] bg-red200 text-alert border-alert flex flex-col "><TiMap />Casablanca</Button>
-                    <Button className="h-[65px] w-[120px] bg-blue200 text-blue300 border-blue300 flex flex-col "><LuClock1 />12/1/2023</Button>
+                    <Button className="h-[65px] w-[120px]  bg-green200 text-green300 border-green300 flex flex-col "><LuUser2 className="text-xl mb-1" />16 Participants</Button>
+                    <Button className="h-[65px] w-[120px] bg-red200 text-alert border-alert flex flex-col "><TiMap className="text-xl mb-1"  />Casablanca</Button>
+                    <Button className="h-[65px] w-[120px] bg-blue200 text-blue300 border-blue300 flex flex-col "><LuClock1 className="text-xl mb-1" />12/1/2023</Button>
                 </div>
             </CardContent>
             <CardFooter className="flex items-center justify-between">
@@ -37,7 +37,7 @@ const EventCard: FC = () => {
                         <p className="text-xs text-black">Services de conseil en environnement</p>
                     </div>
                 </div>
-                <FiPlusCircle className="text-4xl text-green300" />
+                <FiPlusCircle className="text-3xl text-green300" />
             </CardFooter>
         </Card>
     )

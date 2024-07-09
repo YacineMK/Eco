@@ -14,7 +14,7 @@ const SideBar: FC = () => {
             <div className="my-10 w-full flex flex-col justify-between">
                 <div className="w-full flex flex-col px-10 gap-9">
                     <Image src="/Logo.svg" alt="logo" width={70} height={40} />
-                    <Card className="bg-[url('/profil.png')] bg-opacity-55 flex flex-col justify-center p-2 py-2 items-center  rounded-xl border h-48 border-green300">
+                    <Card className="bg-[url('/profil.png')] bg-opacity-5 flex flex-col justify-center p-2 py-2 items-center  rounded-xl border h-48 border-green300">
                         <Image src="/user.png" alt="avatar" width={80} height={80} className="mb-2" />
                         <h1 className="text-base font-semibold">Bennaceur Younes</h1>
                         <div className="text-center ">

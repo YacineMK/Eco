@@ -70,7 +70,7 @@ const AgendaPage: FC = () => {
                     return (
                         <div
                             key={index}
-                            className={clsx("border text-gray border-gray h-[190px] p-2 text-center", {
+                            className={clsx("border text-gray100 border-gray h-[190px] p-2 text-center", {
                                 "bg-gray-200": isToday(day),
                                 "text-gray-900": isToday(day),
                             })}

@@ -33,7 +33,7 @@ const config: Config = {
         yellow200: "#FFFEDE",
         alert: '#FA6C70',
         black: '#858585',
-        gray: '#85858599',
+        gray: '#85858580',
         blue300: "#007BBD",
         blue200: "#B0E3FE",
         gray100:"#3C3C3C"

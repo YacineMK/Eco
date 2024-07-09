@@ -47,6 +47,15 @@
   }
 }
 
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/Satoshi-Regular.ttf') format('truetype');
+}
+
+.font {
+  font-family: 'Satoshi', sans-serif;
+}
+
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }

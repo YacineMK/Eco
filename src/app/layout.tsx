@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import { Alexandria } from "next/font/google";
 import "@/styles/globals.css";
 
-
-const alexandria = Alexandria({ subsets: ["latin"], weight: "400" });
 
 export const metadata: Metadata = {
   title: "EHACK",
@@ -17,7 +14,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={alexandria.className}>{children}</body>
+      <body className="font">{children}</body>
     </html>
   );
 }
