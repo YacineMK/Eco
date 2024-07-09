@@ -35,7 +35,8 @@ const config: Config = {
         black: '#858585',
         gray: '#85858599',
         blue300: "#007BBD",
-        blue200: "#B0E3FE"
+        blue200: "#B0E3FE",
+        gray100:"#3C3C3C"
       },
       borderRadius: {
         lg: 'var(--radius)',

@@ -14,7 +14,7 @@ import { LuUser2 } from "react-icons/lu";
 import { TiMap } from "react-icons/ti";
 import { LuClock1 } from "react-icons/lu";
 
-const CustomCard: FC = () => {
+const EventCard: FC = () => {
     return (
         <Card className="px-3 border border-gray">
             <CardHeader>
@@ -43,4 +43,4 @@ const CustomCard: FC = () => {
     )
 }
 
-export default CustomCard;
+export default EventCard;

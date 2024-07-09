@@ -83,22 +83,20 @@ const Signin: FC = () => {
                     </div>
                     <div>
                         <Label>Confirmez le Mot de passe</Label>
-                        <div className="flex border border-black items-center w-full">
-                            <Input
-                                type="password"
-                                placeholder="Confirmez le Mot de passe"
-                                {...register("confirmPassword")}
-                                className={
-                                    `
+                        <Input
+                            type="password"
+                            placeholder="Confirmez le Mot de passe"
+                            {...register("confirmPassword")}
+                            className={
+                                `
                                      border-none
                                     ${errors.confirmPassword
-                                        ? "border border-alert placeholder:text-alert"
-                                        : ""}
+                                    ? "border border-alert placeholder:text-alert"
+                                    : ""}
                                     `
-                                }
-                            />
-                            <FaEye />
-                        </div>
+                            }
+                        />
+                        <FaEye />
                         {errors.confirmPassword && (
                             <p className="text-alert text-sm">
                                 {errors.confirmPassword.message as string}

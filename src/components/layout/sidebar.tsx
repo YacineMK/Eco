@@ -10,15 +10,15 @@ import { MdOutlineLightMode } from "react-icons/md";
 
 const SideBar: FC = () => {
     return (
-        <section className=" overflow-hidden h-screen w-[298px] border-r border-gray flex gap-6 ">
+        <section className="bg-[#d9d9d91a] overflow-hidden h-screen w-[298px] border-r border-gray flex gap-6 ">
             <div className="my-10 w-full flex flex-col justify-between">
                 <div className="w-full flex flex-col px-10 gap-9">
                     <Image src="/Logo.svg" alt="logo" width={70} height={40} />
-                    <Card className="flex flex-col justify-center p-2 items-center  rounded-xl border h-48 border-green300">
+                    <Card className="bg-[url('/profil.png')] bg-opacity-55 flex flex-col justify-center p-2 py-2 items-center  rounded-xl border h-48 border-green300">
                         <Image src="/user.png" alt="avatar" width={80} height={80} className="mb-2" />
-                        <h1 className="text-lg font-semibold">Bennaceur Younes</h1>
+                        <h1 className="text-base font-semibold">Bennaceur Younes</h1>
                         <div className="text-center ">
-                            <p className="text-base text-black">Volunteer</p>
+                            <p className="text-sm text-black">Volunteer</p>
                             <Link href={"#"} className=" text-xs text-green300 underline">View Profile</Link>
                         </div>
                     </Card>

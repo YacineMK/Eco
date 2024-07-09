@@ -9,7 +9,7 @@ const HomeLayout: FC<LayoutProps> = ({ children }) => {
             <SideBar />
             <div className="flex flex-col md:w-[calc(100vw-298px)] h-full">
                 <Navbar />
-                <div className="flex-grow overflow-auto mx-6 mt-7 no-scrollbar">
+                <div className="flex-grow overflow-auto mx-4 mt-7 no-scrollbar">
                     {children}
                 </div>
             </div>
