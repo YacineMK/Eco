@@ -85,7 +85,7 @@ const AgendaPage: FC = () => {
                                         "bg-yellow200 text-yellow300": event.type === "yellow",
                                     })}
                                 >
-                                    <Image src={event.img} width={40} height={40} className="nb-2 rounded-full" alt="event" />
+                                    <Image src={event.img} width={40} height={40} className="hidden md:flex rounded-full" alt="event" />
                                     {event.title}
                                 </div>
                             ))}

@@ -25,7 +25,6 @@ const CommunityPage: FC = () => {
                             <ProfilCard />
                             <ProfilCard />
                             <ProfilCard />
-                            <ProfilCard />
                         </div>
                     </div>)
                     : <></>

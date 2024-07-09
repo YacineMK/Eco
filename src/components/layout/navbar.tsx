@@ -1,7 +1,8 @@
+"use client"
+
 import { FC } from "react";
 import { FaRegHeart } from "react-icons/fa";
 import { IoMdNotificationsOutline } from "react-icons/io";
-import Image from "next/image";
 import { Button } from "../ui/button";
 import {
     Select,
@@ -10,19 +11,32 @@ import {
     SelectItem,
     SelectTrigger,
 } from "../ui/select";
-
-
+import { RiMenu2Line } from "react-icons/ri";
+import { useOpen } from "@/hooks/useOpen";
+import { HiX } from "react-icons/hi";
 
 const Navbar: FC = () => {
-    return (
-        <header className="w-[calc(100vw-298px)]">
-            <nav className="h-[80px] bg-[#d9d9d91a] flex justify-between md:justify-end items-center w-full border-b border-b-gray">
+    const { isOpen, toggleOpen } = useOpen();
 
-                <div className="mr-4 flex items-center gap-4">
+    return (
+        <header className="">
+            <nav className="h-[80px] px-5 md:px-0 bg-[#fbfbfb] md:bg-[#d9d9d91a] w-full flex justify-between md:justify-end items-center border-b border-b-gray">
+                {isOpen ? (
+                    <HiX
+                        onClick={toggleOpen}
+                        className="flex md:hidden text-2xl font-semibold text-black"
+                    />
+                ) : (
+                        <RiMenu2Line
+                        onClick={toggleOpen}
+                        className="flex md:hidden text-2xl font-semibold text-black"
+                    />
+                )}
+                <div className="flex items-center gap-4">
                     <Button className="bg-red200 border-red200  p-2"><FaRegHeart className="text-base text-alert" /></Button>
                     <Button className="bg-yellow200 border-yellow200 p-2"><IoMdNotificationsOutline className="text-lg text-yellow300" /></Button>
                     <Select>
-                        <SelectTrigger className="border-none"> 🇺🇸 English</SelectTrigger>
+                        <SelectTrigger className="border-none hidden md:flex"> 🇺🇸 English</SelectTrigger>
                         <SelectContent className="border-none">
                             <SelectGroup className=" bg-white">
                                 <SelectItem value="🇫🇷 French">🇫🇷 French</SelectItem>

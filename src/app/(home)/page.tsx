@@ -11,16 +11,15 @@ const HomePage: FC = () => {
             <div className="flex justify-between">
                 <Input className="w-2/3 border border-gray" placeholder="search" />
                 <div>
-                    <Button className=" text-black border border-gray px-4 mr-2"><CgArrowsExchangeAlt /> Sort By </Button>
                     <Button className=" text-black border border-gray px-4"><CgArrowsExchangeAlt /> Sort By </Button>
                 </div>
             </div>
-            <div className="flex gap-4 w-full mb-3">
+            <div className="md:flex gap-4 hidden w-full mb-3">
                 {Category.map((item, index) => (
                     <Button key={index} className="text-black border-gray ">{item}</Button>
                 ))}
             </div>
-            <div className="grid gap-5 grid-cols-1 sm:grid-cols-2 md:grid-cols-3">
+            <div className="grid gap-5 grid-cols-1 md:grid-cols-1 lg:grid-cols-2 2xl:grid-cols-3">
                 <EventCard />
                 <EventCard />
                 <EventCard />
