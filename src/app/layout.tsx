@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 export const metadata: Metadata = {
@@ -14,7 +16,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font">{children}</body>
+      <body className="font">
+          {children}
+      </body>
     </html>
   );
 }
