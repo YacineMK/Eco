@@ -21,8 +21,10 @@
     "date-fns": "^3.6.0",
     "gsap": "^3.12.5",
     "input-otp": "^1.2.4",
+    "js-cookie": "^3.0.5",
     "lucide-react": "^0.401.0",
     "next": "14.2.4",
+    "node-localstorage": "^3.0.5",
     "react": "^18",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
@@ -35,6 +37,7 @@
     "zustand": "^4.5.4"
   },
   "devDependencies": {
+    "@types/js-cookie": "^3.0.6",
     "@types/node": "^20.14.10",
     "@types/react": "^18.3.3",
     "@types/react-dom": "^18",

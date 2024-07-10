@@ -7,14 +7,16 @@ import { Input } from "@/components/ui/input";
 import useMediaQuery from "@/hooks/useResponsive";
 import { FC, useEffect } from "react";
 import { redirect } from "next/navigation";
+import Cookies from 'js-cookie';
+
 
 const CommunityPage: FC = () => {
     const { isLg } = useMediaQuery();
 
-    const isAuthenticated = localStorage.getItem('token');
+    const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated === null) {
+        if (isAuthenticated !== undefined || isAuthenticated !== null) {
             console.log(isAuthenticated);
             redirect('/login');
         }

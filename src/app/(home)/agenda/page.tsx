@@ -11,6 +11,7 @@ import {
     isToday,
     startOfMonth,
 } from "date-fns";
+import Cookies from 'js-cookie';
 import Image from "next/image";
 import { Event } from "@/types/props";
 import {
@@ -38,10 +39,10 @@ const AgendaPage: FC = () => {
         end: lastDayOfMonth,
     });
 
-    const isAuthenticated = localStorage.getItem('token');
+    const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated === null) {
+        if (isAuthenticated !== undefined || isAuthenticated !== null) {
             console.log(isAuthenticated);
             redirect('/login');
         }

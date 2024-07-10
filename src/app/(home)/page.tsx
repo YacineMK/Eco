@@ -5,14 +5,16 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Category } from "@/data/home";
 import { FC, useEffect } from "react";
+import Cookies from 'js-cookie';
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { redirect } from "next/navigation";
 
 const HomePage: FC = () => {
-    const isAuthenticated = localStorage.getItem('token');
+    const isAuthenticated = Cookies.get('token');
+    console.log(isAuthenticated);
 
     useEffect(() => {
-        if (isAuthenticated === null) {
+        if (isAuthenticated === undefined) {
             console.log(isAuthenticated);
             redirect('/login');
         }

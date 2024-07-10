@@ -13,6 +13,8 @@ import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
 import { Toaster, toast } from 'react-hot-toast';
 import customAxios from "@/api/customaxios";
 import { redirect } from "next/navigation";
+import Cookies from 'js-cookie';
+
 
 const Login: FC = () => {
     const {
@@ -30,16 +32,16 @@ const Login: FC = () => {
             const response = await api.post('/api/v1/auth/login', data);
             console.log(response.data)
             toast.success('Login successful!');
-            localStorage.setItem('token', response.data.token);
+            Cookies.set('token', response.data.token);
         } catch (error) {
             console.error('Error signing up:', error);
         }
     };
 
-    const isAuthenticated = localStorage.getItem('token');
+    const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated !== null) {
+        if (isAuthenticated !== undefined || isAuthenticated !== null) {
             redirect('/');
         }
     }, []);
