@@ -11,15 +11,23 @@ import {
     startOfMonth,
 } from "date-fns";
 import Image from "next/image";
+import { Event } from "@/types/props";
+import {
+    Dialog,
+    DialogContent,
+    DialogDescription,
+    DialogFooter,
+    DialogHeader,
+    DialogTitle,
+    DialogTrigger,
+} from "@/components/ui/dialog"
+import { Label } from "@/components/ui/label";
+import EventCard from "@/components/home/EventCard";
+import AgendaCard from "@/components/home/AgendaCard";
+
 
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 
-interface Event {
-    date: Date;
-    title: string;
-    img: string;
-    type: string;
-}
 
 const events: Event[] = [
     { date: new Date(2024, 6, 5), title: 'Green Horizons Community Tree Planting Day', img: '/event.png', type: 'green' },
@@ -77,17 +85,24 @@ const AgendaPage: FC = () => {
                         >
                             {format(day, "d")}
                             {todaysEvents.map((event) => (
-                                <div
-                                    key={event.title}
-                                    className={clsx("mt-2 p-2 rounded-lg flex flex-col justify-center items-center", {
-                                        "bg-green200 text-green300": event.type === "green",
-                                        "bg-blue200 text-blue300": event.type === "blue",
-                                        "bg-yellow200 text-yellow300": event.type === "yellow",
-                                    })}
-                                >
-                                    <Image src={event.img} width={40} height={40} className="hidden md:flex rounded-full" alt="event" />
-                                    {event.title}
-                                </div>
+                                <Dialog>
+                                    <DialogTrigger>
+                                        <div
+                                            key={event.title}
+                                            className={clsx("mt-2 p-2 rounded-lg flex flex-col justify-center items-center", {
+                                                "bg-green200 text-green300": event.type === "green",
+                                                "bg-blue200 text-blue300": event.type === "blue",
+                                                "bg-yellow200 text-yellow300": event.type === "yellow",
+                                            })}
+                                        >
+                                            <Image src={event.img} width={40} height={40} className="hidden md:flex rounded-full" alt="event" />
+                                            {event.title}
+                                        </div>
+                                    </DialogTrigger>
+                                    <DialogContent className="bg-white w-[800px]">
+                                        <AgendaCard />
+                                    </DialogContent>
+                                </Dialog>
                             ))}
                         </div>
                     );
