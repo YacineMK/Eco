@@ -12,6 +12,7 @@ import { LoginBtns } from "@/data/auth";
 import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
 import { Toaster, toast } from 'react-hot-toast';
 import customAxios from "@/api/customaxios";
+import { useAuth } from "@/hooks/useauth";
 
 const Login: FC = () => {
     const {
@@ -23,12 +24,14 @@ const Login: FC = () => {
         resolver: zodResolver(LoginSchema)
     });
     const notify = () => toast.success('Successfully');
+    const { login } = useAuth();
 
     const onSubmit = async (data: Loginschema) => {
         try {
             const api = await customAxios();
             const response = await api.post('/api/v1/auth/login', data);
-            toast.success('Signup successful!');
+            toast.success('Login successful!');
+            login(response.data.token)
             console.log(response.data);
         } catch (error) {
             toast.error('Erreur inattendue. Veuillez réessayer.');
