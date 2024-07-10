@@ -1,6 +1,6 @@
 "use client"
 
-import { FC, useEffect } from "react";
+import { FC } from "react";
 import Image from 'next/image';
 import { SideBarBtns } from "@/data/layout";
 import { Label } from "../ui/label";
@@ -11,6 +11,7 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useOpen } from "@/hooks/useOpen";
 import useMediaQuery from "@/hooks/useResponsive";
+
 
 const SideBar: FC = () => {
 
@@ -33,7 +34,7 @@ const SideBar: FC = () => {
                     </Card> : <></>}
                     <div className="flex flex-col gap-4 items-start">
                         {SideBarBtns.map((item, index) => (
-                            <Label key={index} className=" text-black text-left flex text-base items-center">{item.icon} {" "} {item.title}</Label>
+                            <Link key={index} className=" text-black text-left flex text-base items-center " href={`${item.link}`} > {item.icon} {" "} {item.title} </Link>
                         ))}
                     </div>
                 </div>

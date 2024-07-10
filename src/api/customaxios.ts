@@ -1,18 +1,18 @@
-// import axios from "axios";
+import axios from "axios";
 
-// const customAxios = async () => {
+const customAxios = async () => {
 
-//     const api = axios.create({
-//         baseURL: process.env.BASE_URL,
-//         timeout: 30000,
-//         headers: {
-//             Accept: "application/json",
-//             "Content-Type": "application/json",
+    const api = axios.create({
+        baseURL: "https://squid-tech-backend.onrender.com",
+        timeout: 50000,
+        headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json",
 
-//         },
-//     });
+        },
+    });
 
-//     return api;
-// };
+    return api;
+};
 
-// export default customAxios;
+export default customAxios;

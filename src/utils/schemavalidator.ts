@@ -18,8 +18,8 @@ const OTPSchema = z.object({
 });
 
 export const SignInSchema = z.object({
+    name: z.string().min(6, "Le nom d'utilisateur doit contenir au moins 5 caractères"),
     email: z.string().email("Format d'email invalide").min(5, "L'email doit contenir au moins 5 caractères"),
-    username: z.string().min(6, "Le nom d'utilisateur doit contenir au moins 5 caractères"),
     password: z.string().min(8, {
         message: 'Le mot de passe doit contenir au moins 8 caractères',
     }).max(50, {
@@ -29,20 +29,9 @@ export const SignInSchema = z.object({
     }).regex(/[0-9]/, {
         message: 'Le mot de passe doit contenir au moins un chiffre',
     }),
-    confirmPassword: z.string().min(8, {
-        message: 'Le mot de passe doit contenir au moins 8 caractères',
-    }).max(50, {
-        message: 'Le mot de passe ne doit pas dépasser 50 caractères',
-    }).regex(/[a-zA-Z]/, {
-        message: 'Le mot de passe doit contenir au moins une lettre',
-    }).regex(/[0-9]/, {
-        message: 'Le mot de passe doit contenir au moins un chiffre',
-    }),
-}).refine(data => {
-    if (data.password !== data.confirmPassword) {
-        return {
-            confirmPassword: 'Les mots de passe ne correspondent pas',
-        };
-    }
+    gender: z.boolean(),
 });
 
+
+
+export type SigninSchema = z.infer<typeof SignInSchema>;

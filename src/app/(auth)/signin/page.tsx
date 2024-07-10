@@ -7,10 +7,19 @@ import { FC } from "react";
 import Link from "next/link";
 import { LoginBtns } from "@/data/auth";
 import { useForm } from "react-hook-form";
-import { SignInSchema } from "@/utils/schemavalidator";
+import { SigninSchema, SignInSchema } from "@/utils/schemavalidator";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FaEye } from "react-icons/fa";
-import { FaEyeSlash } from "react-icons/fa";
+import {
+    Select,
+    SelectContent,
+    SelectGroup,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select"
+
+import customAxios from "@/api/customaxios";
+import toast, { Toaster } from "react-hot-toast";
 
 const Signin: FC = () => {
     const {
@@ -18,12 +27,20 @@ const Signin: FC = () => {
         handleSubmit,
         formState: { errors },
 
-    } = useForm({
+    } = useForm<SigninSchema>({
         resolver: zodResolver(SignInSchema)
     });
 
-    const onSubmit = (data: any) => {
-        console.log(data);
+    const onSubmit = async (data: SigninSchema) => {
+        try {
+            const api = await customAxios();
+            const response = await api.post('/api/v1/auth/register', data);
+            toast.success('Signup successful!');
+            console.log(response.data);
+        } catch (error) {
+            toast.error('Erreur inattendue. Veuillez réessayer.');
+            console.error('Error signing up:', error);
+        }
     };
 
     return (
@@ -44,12 +61,12 @@ const Signin: FC = () => {
                         <Input
                             type="text"
                             placeholder="Username"
-                            {...register("username")}
-                            className={errors.username ? "border border-alert placeholder:text-alert" : ""}
+                            {...register("name")}
+                            className={errors.name ? "border border-alert placeholder:text-alert" : ""}
                         />
-                        {errors.username && (
+                        {errors.name && (
                             <p className="text-alert text-sm">
-                                {errors.username.message as string}
+                                {errors.name.message as string}
                             </p>
                         )}
                     </div>
@@ -82,24 +99,21 @@ const Signin: FC = () => {
                         )}
                     </div>
                     <div>
-                        <Label>Confirmez le Mot de passe</Label>
-                        <Input
-                            type="password"
-                            placeholder="Confirmez le Mot de passe"
-                            {...register("confirmPassword")}
-                            className={
-                                `
-                                     border-none
-                                    ${errors.confirmPassword
-                                    ? "border border-alert placeholder:text-alert"
-                                    : ""}
-                                    `
-                            }
-                        />
-                        <FaEye />
-                        {errors.confirmPassword && (
+                        <Label>Gender</Label>
+                        <Select>
+                            <SelectTrigger>
+                                <SelectValue placeholder="Select a Gender" />
+                            </SelectTrigger>
+                            <SelectContent {...register("gender", { value: true })} className={` ${errors.gender ? "border border-alert placeholder:text-alert bg-white" : " bg-white"}`}>
+                                <SelectGroup className="bg-white">
+                                    <SelectItem value="true">Male</SelectItem>
+                                    <SelectItem value="false">Female</SelectItem>
+                                </SelectGroup>
+                            </SelectContent>
+                        </Select>
+                        {errors.gender && (
                             <p className="text-alert text-sm">
-                                {errors.confirmPassword.message as string}
+                                {errors.gender.message as string}
                             </p>
                         )}
                     </div>
@@ -124,6 +138,7 @@ const Signin: FC = () => {
                     ))}
                 </div>
             </div>
+            <Toaster position="bottom-right" />
         </section>
     );
 };
