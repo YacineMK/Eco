@@ -18,7 +18,7 @@ const HomePage: FC = () => {
             console.log(isAuthenticated);
             redirect('/login');
         }
-    }, []);
+    }, [isAuthenticated]);
 
     return (
         <section className="flex flex-col gap-5">
