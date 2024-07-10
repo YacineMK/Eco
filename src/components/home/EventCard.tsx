@@ -31,7 +31,7 @@ const EventCard: FC = () => {
             </CardContent>
             <CardFooter className="flex items-center justify-between">
                 <div className="flex">
-                    <Image src="/user.png" alt="avatar" width={40} height={40} className="mr-3" />
+                    <Image src="/user.png" alt="avatar" width={50} height={50} className="mr-3 rounded-full" />
                     <div className="flex flex-col justify-center">
                         <h1 className="text-sm ">BioScience Club USTHB</h1>
                         <p className="text-xs text-black">Services de conseil en environnement</p>
