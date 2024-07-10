@@ -10,8 +10,23 @@ import { Button } from "../ui/button";
 import { IoImageOutline } from "react-icons/io5";
 import { PiGifBold } from "react-icons/pi";
 import { MdOutlineEmojiEmotions } from "react-icons/md";
+import { useForm } from "react-hook-form";
 
 const AddPost: FC = () => {
+    const { register, handleSubmit } = useForm();
+
+
+    // const onSubmit = async (data: Loginschema) => {
+    //     try {
+    //         const api = await customAxios();
+    //         const response = await api.post('/api/v1/auth/login', data);
+    //         console.log(response.data)
+    //         toast.success('Login successful!');
+    //         Cookies.set('token', response.data.token);
+    //     } catch (error) {
+    //         console.error('Error signing up:', error);
+    //     }
+    // };
 
 
     return (
@@ -29,6 +44,8 @@ const AddPost: FC = () => {
                         id="file-upload"
                         type="file"
                         className="hidden"
+                        {...register('content', { required: true })}
+                        {...register("description", { value: "" })}
                     />
                     <MdOutlineEmojiEmotions />
                     <PiGifBold />

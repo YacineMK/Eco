@@ -22,6 +22,7 @@
     "gsap": "^3.12.5",
     "input-otp": "^1.2.4",
     "js-cookie": "^3.0.5",
+    "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.401.0",
     "next": "14.2.4",
     "node-localstorage": "^3.0.5",
