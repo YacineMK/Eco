@@ -1,4 +1,7 @@
-import { FC, useMemo } from "react";
+"use client"
+
+import { redirect } from "next/navigation";
+import { FC, useMemo, useEffect } from "react";
 import clsx from "clsx";
 import {
     eachDayOfInterval,
@@ -34,6 +37,15 @@ const AgendaPage: FC = () => {
         start: firstDayOfMonth,
         end: lastDayOfMonth,
     });
+
+    const isAuthenticated = localStorage.getItem('token');
+
+    useEffect(() => {
+        if (isAuthenticated === null) {
+            console.log(isAuthenticated);
+            redirect('/login');
+        }
+    }, []);
 
     const startingDayIndex = getDay(firstDayOfMonth);
 

@@ -4,19 +4,17 @@ import EventCard from "@/components/home/EventCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Category } from "@/data/home";
-import { useAuth } from "@/hooks/useauth";
 import { FC, useEffect } from "react";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
 import { redirect } from "next/navigation";
 
 const HomePage: FC = () => {
-    const { isAuthenticated } = useAuth();
-    console.log(isAuthenticated)
+    const isAuthenticated = localStorage.getItem('token');
 
     useEffect(() => {
         if (isAuthenticated === null) {
+            console.log(isAuthenticated);
             redirect('/login');
-            console.log(isAuthenticated)
         }
     }, []);
 

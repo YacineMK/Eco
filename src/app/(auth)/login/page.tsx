@@ -12,7 +12,6 @@ import { LoginBtns } from "@/data/auth";
 import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
 import { Toaster, toast } from 'react-hot-toast';
 import customAxios from "@/api/customaxios";
-import { useAuth } from "@/hooks/useauth";
 import { redirect } from "next/navigation";
 
 const Login: FC = () => {
@@ -24,8 +23,6 @@ const Login: FC = () => {
     } = useForm<Loginschema>({
         resolver: zodResolver(LoginSchema)
     });
-    const notify = () => toast.success('Successfully');
-    const { login } = useAuth();
 
     const onSubmit = async (data: Loginschema) => {
         try {
@@ -33,8 +30,8 @@ const Login: FC = () => {
             const response = await api.post('/api/v1/auth/login', data);
             console.log(response.data)
             toast.success('Login successful!');
-            login(response.data.token);
-            redirect("/");
+            localStorage.setItem('token', response.data.token); 
+            redirect('/');
         } catch (error) {
             console.error('Error signing up:', error);
         }
@@ -59,7 +56,7 @@ const Login: FC = () => {
                         {errors.password && <p className="text-alert text-sm ">{errors.password.message as string}</p>}
                     </div>
                     <Link href="/forget" className="text-right text-sm">Mot de passe oublié ?</Link>
-                    <Button className="bg-green300 text-white" onClick={notify} >Connexion</Button>
+                    <Button className="bg-green300 text-white" >Connexion</Button>
                 </form>
                 <span className="text-center text-sm ">Ou continuer avec</span>
                 <div className="flex sm:flex-col gap-4 justify-center">

@@ -5,10 +5,20 @@ import PostCard from "@/components/home/PostCard";
 import ProfilCard from "@/components/home/ProfilCard";
 import { Input } from "@/components/ui/input";
 import useMediaQuery from "@/hooks/useResponsive";
-import { FC } from "react";
+import { FC, useEffect } from "react";
+import { redirect } from "next/navigation";
 
 const CommunityPage: FC = () => {
     const { isLg } = useMediaQuery();
+
+    const isAuthenticated = localStorage.getItem('token');
+
+    useEffect(() => {
+        if (isAuthenticated === null) {
+            console.log(isAuthenticated);
+            redirect('/login');
+        }
+    }, []);
     return (
         <section className="w-full flex gap-4">
             <div className=" w-full lg:w-2/3 flex flex-col gap-4">
