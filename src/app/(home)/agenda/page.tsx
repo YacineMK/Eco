@@ -21,8 +21,6 @@ import {
     DialogTitle,
     DialogTrigger,
 } from "@/components/ui/dialog"
-import { Label } from "@/components/ui/label";
-import EventCard from "@/components/home/EventCard";
 import AgendaCard from "@/components/home/AgendaCard";
 
 
@@ -30,9 +28,9 @@ const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Frida
 
 
 const events: Event[] = [
-    { date: new Date(2024, 6, 5), title: 'Green Horizons Community Tree Planting Day', img: '/event.png', type: 'green' },
-    { date: new Date(2024, 6, 15), title: 'Green Horizons Community Tree Planting Day', img: '/event.png', type: 'blue' },
-    { date: new Date(2024, 6, 31), title: 'Green Horizons Community Tree Planting Day', img: '/event.png', type: 'yellow' },
+    { date: new Date(2024, 6, 5), title: "Green Horizons Community Tree Planting Day", img: '/event.png', type: 'green' },
+    { date: new Date(2024, 6, 15), title: "Green Horizons Community Tree Planting Day", img: '/event.png', type: 'blue' },
+    { date: new Date(2024, 6, 31), title: "Green Horizons Community Tree Planting Day", img: '/event.png', type: 'yellow' },
 ];
 
 const AgendaPage: FC = () => {

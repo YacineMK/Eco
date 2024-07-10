@@ -11,7 +11,6 @@ import {
     DialogTrigger,
 } from "@/components/ui/dialog"
 import { FaRegComment } from "react-icons/fa";
-import { FcLike } from "react-icons/fc";
 import { FaRegHeart } from "react-icons/fa";
 import { FaRetweet } from "react-icons/fa";
 import { RxShare2 } from "react-icons/rx";
