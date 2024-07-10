@@ -41,10 +41,10 @@ const Login: FC = () => {
     const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated !== undefined || isAuthenticated !== null) {
+        if (isAuthenticated != null) {
             redirect('/');
         }
-    }, []);
+    }, [isAuthenticated]);
 
 
     return (

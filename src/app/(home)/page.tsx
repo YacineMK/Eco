@@ -14,7 +14,7 @@ const HomePage: FC = () => {
     console.log(isAuthenticated);
 
     useEffect(() => {
-        if (isAuthenticated === undefined) {
+        if (isAuthenticated === null || isAuthenticated === undefined) {
             console.log(isAuthenticated);
             redirect('/login');
         }

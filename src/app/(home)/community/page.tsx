@@ -16,7 +16,7 @@ const CommunityPage: FC = () => {
     const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated !== undefined || isAuthenticated !== null) {
+        if (isAuthenticated === null || isAuthenticated === undefined) {
             console.log(isAuthenticated);
             redirect('/login');
         }

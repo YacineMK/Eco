@@ -42,7 +42,7 @@ const AgendaPage: FC = () => {
     const isAuthenticated = Cookies.get('token');
 
     useEffect(() => {
-        if (isAuthenticated !== undefined || isAuthenticated !== null) {
+        if (isAuthenticated === undefined) {
             console.log(isAuthenticated);
             redirect('/login');
         }
