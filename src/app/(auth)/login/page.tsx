@@ -9,8 +9,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FC } from "react"
 import Link from "next/link";
 import { LoginBtns } from "@/data/auth";
-import { LoginSchema } from "@/utils/schemavalidator";
+import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
 import { Toaster, toast } from 'react-hot-toast';
+import customAxios from "@/api/customaxios";
 
 const Login: FC = () => {
     const {
@@ -18,13 +19,21 @@ const Login: FC = () => {
         handleSubmit,
         formState: { errors },
 
-    } = useForm({
+    } = useForm<Loginschema>({
         resolver: zodResolver(LoginSchema)
     });
     const notify = () => toast.success('Successfully');
 
-    const onSubmit = (data: any) => {
-        console.log(data);
+    const onSubmit = async (data: Loginschema) => {
+        try {
+            const api = await customAxios();
+            const response = await api.post('/api/v1/auth/login', data);
+            toast.success('Signup successful!');
+            console.log(response.data);
+        } catch (error) {
+            toast.error('Erreur inattendue. Veuillez réessayer.');
+            console.error('Error signing up:', error);
+        }
     };
 
     return (
@@ -32,7 +41,7 @@ const Login: FC = () => {
             <div className="w-full flex flex-col gap-5 py-9 px-10 md:w-[560px] md:border border-black rounded-xl">
                 <div className="text-center">
                     <h1 className="text-3xl font-bold pb-2">Bienvenue !</h1>
-                    <h2>Vous n’avez pas de compte ? {" "}<Link href="/sigin" className="font-semibold">S’inscrire</Link></h2>
+                    <h2>Vous n’avez pas de compte ? {" "}<Link href="/signin" className="font-semibold">S’inscrire</Link></h2>
                 </div>
                 <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)} >
                     <div>
@@ -60,7 +69,6 @@ const Login: FC = () => {
             </div>
             <Toaster
                 position="bottom-right"
-                reverseOrder={false}
             />
         </section>
     )

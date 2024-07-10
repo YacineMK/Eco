@@ -18,7 +18,7 @@ const OTPSchema = z.object({
 });
 
 export const SignInSchema = z.object({
-    name: z.string().min(6, "Le nom d'utilisateur doit contenir au moins 5 caractères"),
+    name: z.string().min(4, "Le nom d'utilisateur doit contenir au moins 5 caractères"),
     email: z.string().email("Format d'email invalide").min(5, "L'email doit contenir au moins 5 caractères"),
     password: z.string().min(8, {
         message: 'Le mot de passe doit contenir au moins 8 caractères',
@@ -35,3 +35,4 @@ export const SignInSchema = z.object({
 
 
 export type SigninSchema = z.infer<typeof SignInSchema>;
+export type Loginschema = z.infer<typeof LoginSchema>;

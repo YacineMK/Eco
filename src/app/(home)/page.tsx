@@ -1,11 +1,24 @@
+"use client"
+
 import EventCard from "@/components/home/EventCard";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Category } from "@/data/home";
-import { FC } from "react";
+import { useAuth } from "@/hooks/useauth";
+import { FC, useEffect } from "react";
 import { CgArrowsExchangeAlt } from "react-icons/cg";
+import { redirect } from "next/navigation";
 
 const HomePage: FC = () => {
+    const { isAuthenticated } = useAuth();
+
+    useEffect(() => {
+        if (isAuthenticated === null) {
+            redirect('/login');
+        }
+
+    }, [isAuthenticated]);
+
     return (
         <section className="flex flex-col gap-5">
             <div className="flex justify-between">
