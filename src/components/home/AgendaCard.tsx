@@ -25,7 +25,7 @@ const AgendaCard: FC = () => {
                 <CardContent className="flex flex-col gap-3">
                     <CardTitle className="text-2xl">Recycle Rally: Transforming Waste into Resources</CardTitle>
                     <CardDescription className="text-sm text-gray100">
-                        🌳🌟 Join Us for "Green Horizons: Community Tree Planting Day"! 🌟🌳<br></br>
+                        🌳🌟 Join Us for &quot;Green Horizons: Community Tree Planting Day&quot;! 🌟🌳<br></br>
                         Let's come together to make a lasting impact on our environment! On Saturday, September 15th, we're hosting a massive tree-planting event where our community will unite to plant hundreds of trees.  We aim to inspire and educate members .
                     </CardDescription>
                     <div className="flex w-full py-2 justify-between">

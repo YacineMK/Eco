@@ -31,7 +31,7 @@ const PostCard: FC = () => {
                         <h1 className="text-sm text-left text-gray-100 px-3">
                             🌊🌍 Join Us for Shoreline Sweep: Clean Beaches, Clean Future! 🌍🌊
                             <br /><br />
-                            Let's come together to make a difference! 🌟 On Saturday, August 10th, we're hosting a beach cleaning event to remove litter and debris from our beautiful coastlines. Your participation will help protect marine life and ensure our beaches remain pristine for everyone to enjoy.
+                            Let&apos;s come together to make a difference! 🌟 On Saturday, August 10th, we&apos;re hosting a beach cleaning event to remove litter and debris from our beautiful coastlines. Your participation will help protect marine life and ensure our beaches remain pristine for everyone to enjoy.
                             <br /><br />
                             Bring your friends, family, and lots of enthusiasm! Together, we can create a cleaner, healthier environment. Every piece of trash we pick up is a step towards a brighter future. 🌿💙
                             <br /><br />
