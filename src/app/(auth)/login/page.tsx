@@ -13,6 +13,7 @@ import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
 import { Toaster, toast } from 'react-hot-toast';
 import customAxios from "@/api/customaxios";
 import { useAuth } from "@/hooks/useauth";
+import { redirect } from "next/navigation";
 
 const Login: FC = () => {
     const {
@@ -30,11 +31,11 @@ const Login: FC = () => {
         try {
             const api = await customAxios();
             const response = await api.post('/api/v1/auth/login', data);
+            console.log(response.data)
             toast.success('Login successful!');
-            login(response.data.token)
-            console.log(response.data);
+            login(response.data.token);
+            redirect("/");
         } catch (error) {
-            toast.error('Erreur inattendue. Veuillez réessayer.');
             console.error('Error signing up:', error);
         }
     };

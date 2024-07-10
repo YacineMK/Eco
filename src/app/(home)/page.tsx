@@ -16,7 +16,6 @@ const HomePage: FC = () => {
         if (isAuthenticated === null) {
             redirect('/login');
         }
-
     }, [isAuthenticated]);
 
     return (
