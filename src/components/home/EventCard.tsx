@@ -26,7 +26,7 @@ const EventCard: FC = () => {
                 <div className="flex w-full py-2 justify-between">
                     <Button className="h-[65px] w-[120px]  bg-green200 text-green300 border-green300 flex flex-col "><LuUser2 className="text-xl mb-1" />16 Participants</Button>
                     <Button className="h-[65px] w-[120px] bg-red200 text-alert border-alert flex flex-col "><TiMap className="text-xl mb-1" />Casablanca</Button>
-                    <Button className="h-[65px] w-[120px] bg-blue200 text-blue300 border-blue300 flex flex-col "><LuClock1 className="text-xl mb-1" />12/1/2023</Button>
+                    <Button className="h-[65px] hidden md:flex w-[120px] bg-blue200 text-blue300 border-blue300 flex-col "><LuClock1 className="text-xl mb-1" />12/1/2023</Button>
                 </div>
             </CardContent>
             <CardFooter className="flex items-center justify-between">
