@@ -6,7 +6,7 @@ import { Label } from "@/components/ui/label"
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { FC } from "react"
+import { FC, useEffect } from "react"
 import Link from "next/link";
 import { LoginBtns } from "@/data/auth";
 import { Loginschema, LoginSchema } from "@/utils/schemavalidator";
@@ -30,12 +30,20 @@ const Login: FC = () => {
             const response = await api.post('/api/v1/auth/login', data);
             console.log(response.data)
             toast.success('Login successful!');
-            localStorage.setItem('token', response.data.token); 
-            redirect('/');
+            localStorage.setItem('token', response.data.token);
         } catch (error) {
             console.error('Error signing up:', error);
         }
     };
+
+    const isAuthenticated = localStorage.getItem('token');
+
+    useEffect(() => {
+        if (isAuthenticated !== null) {
+            redirect('/');
+        }
+    }, []);
+
 
     return (
         <section className="flex h-screen justify-center items-center">
