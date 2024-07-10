@@ -11,12 +11,14 @@ import { redirect } from "next/navigation";
 
 const HomePage: FC = () => {
     const { isAuthenticated } = useAuth();
+    console.log(isAuthenticated)
 
     useEffect(() => {
         if (isAuthenticated === null) {
             redirect('/login');
+            console.log(isAuthenticated)
         }
-    }, [isAuthenticated]);
+    }, []);
 
     return (
         <section className="flex flex-col gap-5">
