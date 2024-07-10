@@ -1,5 +1,3 @@
-"use client";
-
 import { FC, useMemo } from "react";
 import clsx from "clsx";
 import {
@@ -15,17 +13,11 @@ import { Event } from "@/types/props";
 import {
     Dialog,
     DialogContent,
-    DialogDescription,
-    DialogFooter,
-    DialogHeader,
-    DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import AgendaCard from "@/components/home/AgendaCard";
 
-
 const WEEKDAYS = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-
 
 const events: Event[] = [
     { date: new Date(2024, 6, 5), title: "Green Horizons Community Tree Planting Day", img: '/event.png', type: 'green' },
@@ -54,7 +46,7 @@ const AgendaPage: FC = () => {
             acc[dateKey].push(event);
             return acc;
         }, {});
-    }, [events]);
+    }, []); // Removed 'events' from dependency array
 
     return (
         <div className="flex flex-col gap-3 w-full p-4">
@@ -83,10 +75,9 @@ const AgendaPage: FC = () => {
                         >
                             {format(day, "d")}
                             {todaysEvents.map((event) => (
-                                <Dialog>
+                                <Dialog key={event.title}>
                                     <DialogTrigger>
                                         <div
-                                            key={event.title}
                                             className={clsx("mt-2 p-2 rounded-lg flex flex-col justify-center items-center", {
                                                 "bg-green200 text-green300": event.type === "green",
                                                 "bg-blue200 text-blue300": event.type === "blue",
