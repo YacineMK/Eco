@@ -8,19 +8,40 @@ import {
     CardTitle,
 } from "../ui/card"
 import { Button } from "../ui/button";
-import Image from "next/image";
-import { FiPlusCircle } from "react-icons/fi";
 import { LuUser2 } from "react-icons/lu";
 import { TiMap } from "react-icons/ti";
 import { LuClock1 } from "react-icons/lu";
+import { LuTicket } from "react-icons/lu";
+import { FiPlusCircle } from "react-icons/fi";
+import Image from "next/image";
 
 const AgendaCard: FC = () => {
     return (
         <Card className="w-full p-2 shadow-none border-none flex">
             <div>
-                <CardHeader className="flex justify-between">
-                    <Button className="bg-green200 text-green300 border-green300">Accepted ✅</Button>
-                    <Button className="bg-green200 text-green300 border-green300">Accepted ✅</Button>
+                <CardHeader className="flex justify-between gap-3">
+                    <div className="flex items-center justify-between mb-3">
+                        <div className="flex items-center">
+                            <Image
+                                src="/user.png"
+                                alt="avatar"
+                                width={50}
+                                height={50}
+                                className="mr-3 rounded-full"
+                            />
+                            <div className="flex flex-col justify-center">
+                                <h1 className="text-sm ">BioScience Club USTHB</h1>
+                                <p className="text-xs text-black">
+                                    Services de conseil en environnement
+                                </p>
+                            </div>
+                        </div>
+                        <FiPlusCircle className="text-3xl text-green300" />
+                    </div>
+                    <div className="flex flex-row justify-between">
+                        <Button className="text-gray border-gray"><LuTicket className="mr-1" /> {" "} Ticket</Button>
+                        <Button className="bg-green200 text-green300 border-green300">Accepted ✅</Button>
+                    </div>
                 </CardHeader>
                 <CardContent className="flex flex-col gap-3">
                     <CardTitle className="text-2xl">Recycle Rally: Transforming Waste into Resources</CardTitle>

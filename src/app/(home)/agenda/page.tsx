@@ -59,7 +59,7 @@ const AgendaPage: FC = () => {
             acc[dateKey].push(event);
             return acc;
         }, {});
-    }, []); // Removed 'events' from dependency array
+    }, []); 
 
     return (
         <div className="flex flex-col gap-3 w-full p-4">

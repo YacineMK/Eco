@@ -3,7 +3,7 @@ import axios from "axios";
 const customAxios = async () => {
 
     const api = axios.create({
-        baseURL: "https://squid-tech-backend.onrender.com",
+        baseURL: "http://echobackend.laindev.me",
         timeout: 50000,
         headers: {
             Accept: "application/json",
