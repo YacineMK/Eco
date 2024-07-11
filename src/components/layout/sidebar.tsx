@@ -1,9 +1,8 @@
 "use client";
 
-import { FC } from "react";
+import { FC, useState } from "react";
 import Image from "next/image";
 import { SideBarBtns } from "@/data/layout";
-import { Label } from "../ui/label";
 import { Card } from "../ui/card";
 import Link from "next/link";
 import { Button } from "../ui/button";
@@ -11,16 +10,20 @@ import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { useOpen } from "@/hooks/useOpen";
 import useMediaQuery from "@/hooks/useResponsive";
+import Cookies from 'js-cookie';
+
 
 const SideBar: FC = () => {
   const { isOpen } = useOpen();
   const { isMd } = useMediaQuery();
 
+  // const [user, setuser] = useState("");
+  // setuser(Cookies.get('token')?.valueOf as string);
+
   return (
     <section
-      className={`${
-        isOpen ? "translate-x-0" : "-translate-x-full"
-      } absolute md:translate-x-0 bg-[#fbfbfb] top-[80px] md:top-0 md:sticky bg-[#d9d9d91a] overflow-hidden bottom-0 md:h-screen w-[298px] border-r border-gray flex gap-6`}
+      className={`${isOpen ? "translate-x-0" : "-translate-x-full"
+        } absolute md:translate-x-0 bg-[#fbfbfb] top-[80px] md:top-0 md:sticky bg-[#d9d9d91a] overflow-hidden bottom-0 md:h-screen w-[298px] border-r border-gray flex gap-6`}
     >
       <div className="my-10 w-full flex flex-col justify-between">
         <div className="w-full flex flex-col px-10 gap-9">
@@ -34,7 +37,7 @@ const SideBar: FC = () => {
                 height={80}
                 className="mb-2"
               />
-              <h1 className="text-base font-semibold">Bennaceur Younes</h1>
+              <h1 className="text-base font-semibold">Soyed</h1>
               <div className="text-center">
                 <p className="text-sm text-black">Volunteer</p>
                 <Link href={"#"} className="text-xs text-green300 underline">

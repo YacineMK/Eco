@@ -2,6 +2,9 @@
 
 ## Getting Started
 
+![main](/docs/image.png)
+![main](/docs/main.png)
+
 ### Clone the Project
 
 First, clone the project repository:
