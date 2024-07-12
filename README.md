@@ -13,6 +13,8 @@ First, clone the project repository:
 git clone https://github.com/YacineMK/Squid-Tech.git
 ```
 
+*link :* https://squid-tech.vercel.app/
+
 ### Install Dependencies
 
 Navigate into the project directory and install dependencies using npm, yarn, pnpm, or bun:
