@@ -2,10 +2,8 @@
 
 ## Getting Started
 
-![main](/docs/image.png)
 ![main](/docs/main.png)
 
-https://www.figma.com/design/Iz2sAj2SNv7G1nMgSLIrEj/Squid-Tech?node-id=1-3&t=ctbPv59k0u9ELcPi-1
 
 ### Clone the Project
 
